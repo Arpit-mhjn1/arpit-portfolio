@@ -50,7 +50,7 @@ Featuring real-time celestial simulations, a 24-key interactive 3D isometric mus
 Interactive project cards with live demo links, GitHub repositories, and full tech stack tags:
 1. **Loan Application Management System:** Enterprise Java & Spring Boot application.
 2. **AI Interview Coach:** Real-time AI-driven interview simulation and feedback platform.
-3. **Campus Event Management System:** Full-stack event platform deployed live on Render (`https://edc-event-manager-1.onrender.com/`).
+3. **Campus Event Management System:** Full-stack event platform deployed live on Railway (`https://divine-amazement-production-237d.up.railway.app/`).
 4. **Dynamic Developer Portfolio:** This interactive web application.
 
 ---
