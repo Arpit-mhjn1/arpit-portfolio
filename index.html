@@ -16,8 +16,11 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <!-- Space Background -->
-    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);"></canvas>
+    <!-- Realistic Morning Background (Light Mode) -->
+    <div id="light-bg" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3; background: url('styles/bg-light.jpg') center/cover no-repeat; opacity: 0; transition: opacity 1s ease;"></div>
+    
+    <!-- Space Background Canvas (Dark Mode) -->
+    <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; transition: opacity 1s ease;"></canvas>
 
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>

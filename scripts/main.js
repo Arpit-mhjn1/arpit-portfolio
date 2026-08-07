@@ -95,12 +95,19 @@ const themeToggle = document.getElementById('theme-toggle');
 const htmlEl = document.documentElement;
 const sunIcon = document.querySelector('.sun-icon');
 const moonIcon = document.querySelector('.moon-icon');
+const lightBg = document.getElementById('light-bg');
+const bgCanvas = document.getElementById('bg-canvas');
 
 // Check local storage for theme
 if (localStorage.getItem('theme') === 'light') {
     htmlEl.classList.remove('dark');
     if (sunIcon) sunIcon.classList.add('hidden');
     if (moonIcon) moonIcon.classList.remove('hidden');
+    if (lightBg) lightBg.style.opacity = '1';
+    if (bgCanvas) bgCanvas.style.opacity = '0';
+} else {
+    if (lightBg) lightBg.style.opacity = '0';
+    if (bgCanvas) bgCanvas.style.opacity = '1';
 }
 
 if (themeToggle) {
@@ -111,10 +118,14 @@ if (themeToggle) {
             localStorage.setItem('theme', 'dark');
             sunIcon.classList.remove('hidden');
             moonIcon.classList.add('hidden');
+            if (lightBg) lightBg.style.opacity = '0';
+            if (bgCanvas) bgCanvas.style.opacity = '1';
         } else {
             localStorage.setItem('theme', 'light');
             sunIcon.classList.add('hidden');
             moonIcon.classList.remove('hidden');
+            if (lightBg) lightBg.style.opacity = '1';
+            if (bgCanvas) bgCanvas.style.opacity = '0';
         }
     });
 }
@@ -317,6 +328,19 @@ if (canvas) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         const time = Date.now();
 
+        // Only draw if canvas is visible (Dark Mode)
+        if (canvas.style.opacity === '0') {
+            requestAnimationFrame(animateCosmos);
+            return;
+        }
+
+        // Deep space background fill
+        const bgGrad = ctx.createRadialGradient(canvas.width / 2, canvas.height, canvas.height * 0.1, canvas.width / 2, canvas.height, canvas.width);
+        bgGrad.addColorStop(0, '#1b2735');
+        bgGrad.addColorStop(1, '#090a0f');
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
         // 1. Draw Twinkling Starfield
         for (let i = 0; i < particles.length; i++) {
             particles[i].update();
@@ -329,7 +353,7 @@ if (canvas) {
         const baseR = Math.min(canvas.width, canvas.height);
         const sunRadius = baseR * 0.055;
 
-        // Solar System Planet Definitions (Radius from Sun, Orbital Speed, Size, Colors)
+        // Solar System Planet Definitions
         const planets = [
             { name: 'Mercury', orbitR: baseR * 0.12, speed: 0.0006, size: baseR * 0.007, colors: ['#e2e8f0', '#94a3b8', '#475569'] },
             { name: 'Venus',   orbitR: baseR * 0.19, speed: 0.00045, size: baseR * 0.012, colors: ['#fef08a', '#facc15', '#a16207'] },
