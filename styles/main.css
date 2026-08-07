@@ -1,15 +1,15 @@
 :root {
     /* Color Palette */
-    --bg-color: #ffffff;
-    --text-color: #0f172a;
-    --primary: #0F172A; /* Deep Slate for high contrast on light bg */
-    --secondary: #334155; 
-    --btn-primary: #0F172A;
-    --btn-border: #334155;
-    --cursor-rgb: 15, 23, 42; /* Deep Slate RGB */
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.3);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    --bg-color: transparent;
+    --text-color: #f8fafc;
+    --primary: #ffffff; 
+    --secondary: #e2e8f0; 
+    --btn-primary: #ffffff;
+    --btn-border: #94a3b8;
+    --cursor-rgb: 255, 255, 255;
+    --glass-bg: rgba(15, 23, 42, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     
     /* Typography */
     --font-sans: 'Inter', sans-serif;
@@ -224,9 +224,16 @@ h1, h2, h3 {
 
 /* Hero Section */
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
+}
+
+.hero-content h1, 
+.hero-content h2, 
+.hero-content p,
+.hero-content .subtitle {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .subtitle {
@@ -240,7 +247,8 @@ h1, h2, h3 {
 .title {
     font-size: clamp(3rem, 8vw, 6rem);
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
 .description {
@@ -250,9 +258,6 @@ h1, h2, h3 {
     margin: 0 auto 2.5rem;
 }
 
-html:not(.dark) .description {
-    color: rgba(0, 0, 0, 0.7);
-}
 
 .cta-buttons {
     display: flex;
@@ -276,9 +281,13 @@ html:not(.dark) .description {
 
 .primary-btn {
     background: var(--btn-primary);
-    color: white;
+    color: #000000;
     border: 1px solid var(--btn-border);
     box-shadow: 0 4px 15px rgba(var(--cursor-rgb), 0.15);
+}
+
+html.dark .primary-btn {
+    color: #ffffff;
 }
 
 .primary-btn:hover {
@@ -304,9 +313,8 @@ html:not(.dark) .description {
     font-size: clamp(2.5rem, 5vw, 4rem);
     text-align: center;
     margin-bottom: 4rem;
-    background: linear-gradient(to bottom, var(--text-color), rgba(128,128,128,0.5));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-color);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .projects-grid {
