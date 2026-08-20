@@ -255,6 +255,93 @@ h1, h2, h3 {
         margin-right: auto;
     }
 }
+/* Animated Birds */
+.birds-container {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bird-wrapper {
+    position: absolute;
+    left: -10vw; /* Start outside the screen */
+}
+
+.bird-svg {
+    width: 100%;
+    height: 100%;
+    fill: #1e293b; /* Dark slate gray for bird silhouettes */
+    animation: flap 0.6s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+@keyframes flap {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(-0.6); }
+}
+
+@keyframes fly-across {
+    0% { transform: translateX(-10vw) translateY(0) scale(1); }
+    25% { transform: translateX(25vw) translateY(-15px) scale(1.1); }
+    50% { transform: translateX(50vw) translateY(15px) scale(0.9); }
+    75% { transform: translateX(75vw) translateY(-10px) scale(1.05); }
+    100% { transform: translateX(110vw) translateY(0) scale(1); }
+}
+@keyframes pan-clouds {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(4%, -2%, 0) scale(1.05); }
+}
+/* High-Altitude Rocket */
+.rocket-container {
+    position: absolute;
+    width: 50vw;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transform-origin: right center;
+    transform: rotate(-25deg);
+    animation: rocket-launch 35s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.rocket-trail {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.95) 80%, #ffffff 100%);
+    filter: blur(2.5px);
+    border-radius: 50%;
+    animation: trail-pulse 0.2s infinite alternate;
+}
+
+.rocket-head {
+    position: absolute;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 5px rgba(255, 255, 255, 0.9), 0 0 24px 10px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes rocket-launch {
+    0% { top: 120vh; left: -50vw; opacity: 0; }
+    5% { opacity: 0; }
+    15% { opacity: 1; }
+    70% { top: -40vh; left: 120vw; opacity: 0; }
+    100% { top: -40vh; left: 120vw; opacity: 0; }
+}
+
+@keyframes trail-pulse {
+    0% { opacity: 0.7; transform: scaleY(0.7); }
+    100% { opacity: 1; transform: scaleY(1.3); }
+}
 
 /* Notice Board Effect */
 .notice-board-container {

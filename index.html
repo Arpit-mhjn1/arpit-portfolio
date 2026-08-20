@@ -17,7 +17,27 @@
 </head>
 <body>
     <!-- Realistic Morning Background (Light Mode) -->
-    <div id="light-bg" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3; background: url('88350.jpg') center/cover no-repeat; opacity: 0; transition: opacity 1s ease;"></div>
+    <div id="light-bg" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -3; opacity: 0; transition: opacity 1s ease; overflow: hidden;">
+        <div class="sky-image" style="position: absolute; top: -10%; left: -10%; width: 120%; height: 120%; background: url('light-sky-bg.jpg') center/cover no-repeat; animation: pan-clouds 35s linear infinite alternate;"></div>
+        <div class="birds-container">
+            <div class="flock" style="position: absolute; top: 15%; left: 0; width: 150px; height: 100px; animation: fly-across 25s linear infinite;">
+                <!-- Leader -->
+                <div class="bird-wrapper" style="top: 30px; left: 120px; width: 22px; opacity: 0.8;"><svg class="bird-svg" viewBox="0 0 100 50" style="animation-duration: 0.6s"><path d="M0,25 Q25,5 50,25 Q75,5 100,25 Q75,20 50,35 Q25,20 0,25"/></svg></div>
+                <!-- Left Wing -->
+                <div class="bird-wrapper" style="top: 15px; left: 90px; width: 18px; opacity: 0.6;"><svg class="bird-svg" viewBox="0 0 100 50" style="animation-duration: 0.55s; animation-delay: -0.2s;"><path d="M0,25 Q25,5 50,25 Q75,5 100,25 Q75,20 50,35 Q25,20 0,25"/></svg></div>
+                <div class="bird-wrapper" style="top: 0px; left: 60px; width: 16px; opacity: 0.5;"><svg class="bird-svg" viewBox="0 0 100 50" style="animation-duration: 0.65s; animation-delay: -0.4s;"><path d="M0,25 Q25,5 50,25 Q75,5 100,25 Q75,20 50,35 Q25,20 0,25"/></svg></div>
+                <!-- Right Wing -->
+                <div class="bird-wrapper" style="top: 45px; left: 90px; width: 18px; opacity: 0.6;"><svg class="bird-svg" viewBox="0 0 100 50" style="animation-duration: 0.5s; animation-delay: -0.1s;"><path d="M0,25 Q25,5 50,25 Q75,5 100,25 Q75,20 50,35 Q25,20 0,25"/></svg></div>
+                <div class="bird-wrapper" style="top: 60px; left: 60px; width: 16px; opacity: 0.5;"><svg class="bird-svg" viewBox="0 0 100 50" style="animation-duration: 0.7s; animation-delay: -0.3s;"><path d="M0,25 Q25,5 50,25 Q75,5 100,25 Q75,20 50,35 Q25,20 0,25"/></svg></div>
+            </div>
+        </div>
+        
+        <!-- High-Altitude Rocket -->
+        <div class="rocket-container">
+            <div class="rocket-trail"></div>
+            <div class="rocket-head"></div>
+        </div>
+    </div>
     
     <!-- Space Background Canvas (Dark Mode) -->
     <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; transition: opacity 1s ease;"></canvas>
