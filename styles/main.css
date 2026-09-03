@@ -594,9 +594,13 @@ html:not(.dark) .secondary-btn:hover {
     border: none;
     background: rgba(255,255,255,0.05);
     border: 1px solid var(--glass-border);
-    color: var(--text-color);
+    color: #f8fafc; /* explicitly white for both modes */
     font-family: var(--font-sans);
     transition: all 0.3s;
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 html:not(.dark) .form-input {
