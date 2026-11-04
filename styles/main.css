@@ -769,7 +769,8 @@ html:not(.dark) .isometric-keyboard {
 .projects-grid .project-card:nth-child(7) .project-image { border: 3px solid #10B981; box-sizing: border-box; border-radius: 16px; }
 .projects-grid .project-card:nth-child(8) .project-image { border: 3px solid #3B82F6; box-sizing: border-box; border-radius: 16px; }
 .projects-grid .project-card:nth-child(9) .project-image { border: 3px solid #F97316; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(10) .project-image { border: 3px solid #E879F9; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(10) .project-image { border: 3px solid #E11D48; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(11) .project-image { border: 3px solid #E879F9; box-sizing: border-box; border-radius: 16px; }
 
 /* Keep gradient constrained within the border */
 .projects-grid .project-card .project-image::after {
