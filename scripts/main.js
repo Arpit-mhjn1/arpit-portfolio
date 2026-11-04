@@ -578,3 +578,84 @@ isoKeys.forEach(key => {
         });
     }
 }
+
+// =========================================
+// 3D Holographic Parallax Card (Apple / Stripe Style)
+// =========================================
+const holoCard = document.getElementById('holo-card');
+const holoCardInner = document.getElementById('holo-card-inner');
+
+if (holoCard && holoCardInner) {
+    let bounds = null;
+
+    function updateBounds() {
+        bounds = holoCard.getBoundingClientRect();
+    }
+
+    holoCard.addEventListener('mouseenter', updateBounds);
+    window.addEventListener('resize', () => { bounds = null; });
+    window.addEventListener('scroll', () => { bounds = null; }, { passive: true });
+
+    holoCard.addEventListener('mousemove', (e) => {
+        if (!bounds) updateBounds();
+        const mouseX = e.clientX - bounds.left;
+        const mouseY = e.clientY - bounds.top;
+        
+        const pctX = (mouseX / bounds.width) - 0.5; // -0.5 to 0.5
+        const pctY = (mouseY / bounds.height) - 0.5; // -0.5 to 0.5
+
+        // Precise tilt calculation (degrees)
+        const rotateY = pctX * 24; 
+        const rotateX = -pctY * 24;
+
+        // Glare coordinates (in percentage)
+        const glareX = (pctX + 0.5) * 100;
+        const glareY = (pctY + 0.5) * 100;
+
+        holoCardInner.style.setProperty('--glare-x', `${glareX.toFixed(1)}%`);
+        holoCardInner.style.setProperty('--glare-y', `${glareY.toFixed(1)}%`);
+        holoCardInner.style.setProperty('--glare-opacity', '0.85');
+
+        gsap.to(holoCardInner, {
+            rotateX: rotateX,
+            rotateY: rotateY,
+            duration: 0.22,
+            ease: 'power2.out',
+            transformPerspective: 1400
+        });
+    });
+
+    holoCard.addEventListener('mouseleave', () => {
+        holoCardInner.style.setProperty('--glare-opacity', '0');
+        gsap.to(holoCardInner, {
+            rotateX: 0,
+            rotateY: 0,
+            duration: 0.85,
+            ease: 'elastic.out(1, 0.45)'
+        });
+    });
+
+    // View Toggle Switcher (Portrait vs Full Body)
+    const toggleFrontBtn = document.getElementById('toggle-front-btn');
+    const toggleBodyBtn = document.getElementById('toggle-body-btn');
+    const imgFront = document.getElementById('holo-img-front');
+    const imgBody = document.getElementById('holo-img-body');
+
+    if (toggleFrontBtn && toggleBodyBtn && imgFront && imgBody) {
+        toggleFrontBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleFrontBtn.classList.add('active');
+            toggleBodyBtn.classList.remove('active');
+            imgFront.classList.add('active');
+            imgBody.classList.remove('active');
+        });
+
+        toggleBodyBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleBodyBtn.classList.add('active');
+            toggleFrontBtn.classList.remove('active');
+            imgBody.classList.add('active');
+            imgFront.classList.remove('active');
+        });
+    }
+}

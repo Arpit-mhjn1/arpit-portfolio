@@ -13,7 +13,7 @@
     <!-- Devicon Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles/main.css?v=1.3">
+    <link rel="stylesheet" href="styles/main.css?v=1.4">
 </head>
 <body>
     <!-- Realistic Morning Background (Light Mode) -->
@@ -85,11 +85,48 @@
                     </div>
                 </div>
 
-                <div class="notice-board-container reveal-card">
-                    <div class="notice-board">
-                        <div class="pin top-left"></div>
-                        <div class="pin top-right"></div>
-                        <img src="Arpit%20Mahajan.jpeg" alt="Arpit Mahajan" class="notice-photo">
+                <div class="holo-card-stage reveal-card">
+                    <div class="holo-card" id="holo-card">
+                        <!-- Holographic ambient back glow -->
+                        <div class="holo-ambient-glow"></div>
+
+                        <!-- 3D Card Body -->
+                        <div class="holo-card-inner" id="holo-card-inner">
+                            <!-- Iridescent Holographic Border Rim -->
+                            <div class="holo-border-rim"></div>
+
+                            <!-- Photo Viewport (Layer 1) -->
+                            <div class="holo-viewport">
+                                <img src="Front%20face.jpeg" alt="Arpit Mahajan" class="holo-img active" id="holo-img-front">
+                                <img src="Full%20Body.jpeg" alt="Arpit Mahajan Full Body" class="holo-img" id="holo-img-body">
+                                <div class="holo-vignette"></div>
+                            </div>
+
+                            <!-- Holographic Glare & Specular Foil (Layer 2 - follows cursor) -->
+                            <div class="holo-glare" id="holo-glare"></div>
+                            <div class="holo-foil-shimmer"></div>
+
+                            <!-- 3D Floating Badges (Layer 3 - elevated translateZ) -->
+                            <div class="holo-badge badge-top">
+                                <span class="pulse-indicator"></span>
+                                <span>Open to Internships</span>
+                            </div>
+
+                            <div class="holo-badge badge-bottom">
+                                <i data-lucide="sparkles" style="width: 14px; height: 14px; color: #00E5FF;"></i>
+                                <span>Aspiring Software Engineer</span>
+                            </div>
+                        </div>
+
+                        <!-- Sleek View Toggle -->
+                        <div class="holo-toggle-bar">
+                            <button class="holo-toggle-btn active" data-target="front" id="toggle-front-btn">
+                                <i data-lucide="user" style="width: 13px; height: 13px;"></i> Portrait
+                            </button>
+                            <button class="holo-toggle-btn" data-target="body" id="toggle-body-btn">
+                                <i data-lucide="user-check" style="width: 13px; height: 13px;"></i> Full Body
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
