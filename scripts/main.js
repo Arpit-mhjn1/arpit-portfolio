@@ -644,18 +644,12 @@ if (holoCard && holoCardInner) {
     if (toggleFrontBtn && toggleBodyBtn && imgFront && imgBody) {
         toggleFrontBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggleFrontBtn.classList.add('active');
-            toggleBodyBtn.classList.remove('active');
-            imgFront.classList.add('active');
-            imgBody.classList.remove('active');
+            if (window.setHoloView) window.setHoloView('front');
         });
 
         toggleBodyBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggleBodyBtn.classList.add('active');
-            toggleFrontBtn.classList.remove('active');
-            imgBody.classList.add('active');
-            imgFront.classList.remove('active');
+            if (window.setHoloView) window.setHoloView('body');
         });
     }
 }

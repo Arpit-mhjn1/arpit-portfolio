@@ -389,8 +389,12 @@ h1, h2, h3 {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75), 
                 0 0 0 1px rgba(255, 255, 255, 0.12);
     background: #0b0f19;
-    transition: box-shadow 0.4s ease;
+    transition: aspect-ratio 0.45s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
     will-change: transform;
+}
+
+.holo-card-inner.view-body {
+    aspect-ratio: 9 / 14; /* Expands height smoothly to showcase full standing posture */
 }
 
 /* Light Mode Card Backdrop */
@@ -444,6 +448,7 @@ html:not(.dark) .holo-card-inner {
     opacity: 1;
     visibility: visible;
     transform: scale(1);
+    z-index: 2;
 }
 
 .holo-img#holo-img-front {
@@ -451,7 +456,7 @@ html:not(.dark) .holo-card-inner {
 }
 
 .holo-img#holo-img-body {
-    object-position: center top;
+    object-position: center 20%;
 }
 
 /* Vignette Layer */
@@ -568,6 +573,9 @@ html:not(.dark) .holo-vignette {
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 25;
+    pointer-events: auto;
 }
 
 html:not(.dark) .holo-toggle-bar {
@@ -588,6 +596,14 @@ html:not(.dark) .holo-toggle-bar {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.25s ease;
+    position: relative;
+    z-index: 26;
+    pointer-events: auto;
+    user-select: none;
+}
+
+.holo-toggle-btn * {
+    pointer-events: none;
 }
 
 html:not(.dark) .holo-toggle-btn {

@@ -13,7 +13,7 @@
     <!-- Devicon Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles/main.css?v=1.4">
+    <link rel="stylesheet" href="styles/main.css?v=1.5">
 </head>
 <body>
     <!-- Realistic Morning Background (Light Mode) -->
@@ -120,10 +120,10 @@
 
                         <!-- Sleek View Toggle -->
                         <div class="holo-toggle-bar">
-                            <button class="holo-toggle-btn active" data-target="front" id="toggle-front-btn">
+                            <button class="holo-toggle-btn active" data-target="front" id="toggle-front-btn" onclick="setHoloView('front')">
                                 <i data-lucide="user" style="width: 13px; height: 13px;"></i> Portrait
                             </button>
-                            <button class="holo-toggle-btn" data-target="body" id="toggle-body-btn">
+                            <button class="holo-toggle-btn" data-target="body" id="toggle-body-btn" onclick="setHoloView('body')">
                                 <i data-lucide="user-check" style="width: 13px; height: 13px;"></i> Full Body
                             </button>
                         </div>
@@ -353,6 +353,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- Custom Scripts -->
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js?v=2.0"></script>
+    <script>
+        function setHoloView(view) {
+            const btnFront = document.getElementById('toggle-front-btn');
+            const btnBody = document.getElementById('toggle-body-btn');
+            const imgFront = document.getElementById('holo-img-front');
+            const imgBody = document.getElementById('holo-img-body');
+            const cardInner = document.getElementById('holo-card-inner');
+
+            if (view === 'body') {
+                if (btnBody) btnBody.classList.add('active');
+                if (btnFront) btnFront.classList.remove('active');
+                if (imgBody) imgBody.classList.add('active');
+                if (imgFront) imgFront.classList.remove('active');
+                if (cardInner) cardInner.classList.add('view-body');
+            } else {
+                if (btnFront) btnFront.classList.add('active');
+                if (btnBody) btnBody.classList.remove('active');
+                if (imgFront) imgFront.classList.add('active');
+                if (imgBody) imgBody.classList.remove('active');
+                if (cardInner) cardInner.classList.remove('view-body');
+            }
+        }
+    </script>
 </body>
 </html>
