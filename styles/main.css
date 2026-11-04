@@ -759,15 +759,17 @@ html:not(.dark) .isometric-keyboard {
 }
 
 /* Unique Borders for Project Images */
-.projects-grid .project-card:nth-child(1) .project-image { border: 3px solid #FF3366; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(2) .project-image { border: 3px solid #00C4CC; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(3) .project-image { border: 3px solid #F2C811; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(4) .project-image { border: 3px solid #8B5CF6; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(5) .project-image { border: 3px solid #EF4444; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(6) .project-image { border: 3px solid #10B981; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(7) .project-image { border: 3px solid #3B82F6; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(8) .project-image { border: 3px solid #F97316; box-sizing: border-box; border-radius: 16px; }
-.projects-grid .project-card:nth-child(9) .project-image { border: 3px solid #E879F9; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card .project-image { border: 3px solid #00D2EE; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(1) .project-image { border: 3px solid #00D2EE; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(2) .project-image { border: 3px solid #FF3366; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(3) .project-image { border: 3px solid #00C4CC; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(4) .project-image { border: 3px solid #F2C811; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(5) .project-image { border: 3px solid #8B5CF6; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(6) .project-image { border: 3px solid #EF4444; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(7) .project-image { border: 3px solid #10B981; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(8) .project-image { border: 3px solid #3B82F6; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(9) .project-image { border: 3px solid #F97316; box-sizing: border-box; border-radius: 16px; }
+.projects-grid .project-card:nth-child(10) .project-image { border: 3px solid #E879F9; box-sizing: border-box; border-radius: 16px; }
 
 /* Keep gradient constrained within the border */
 .projects-grid .project-card .project-image::after {
